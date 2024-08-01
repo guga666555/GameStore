@@ -1,0 +1,216 @@
+@attribute [StreamRendering]
+
+<aside id="sidebar">
+  <div class="sidebar-widget">
+    <button class="toggle-btn" type="button">
+      <i class="bi bi-grid"></i>
+    </button>
+    <div class="sidebar-logo">
+      <a href="#">The House Games</a>
+    </div>
+  </div>
+  <ul class="sidebar-nav">
+    <li class="sidebar-item">
+      <a href="#" class="sidebar-link">
+        <i class="bi bi-person-circle"></i>
+        <span>Profile</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a href="#" class="sidebar-link">
+        <i class="bi bi-shield-check"></i>
+        <span>Auth</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a href="/editgame" class="sidebar-link">
+        <i class="bi bi-cart-plus"></i>
+        <span>Create a new Product</span>
+      </a 
+    </li>
+    <li class="sidebar-item">
+      <a href="#" class="sidebar-link">
+        <i class="bi bi-gear-fill"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <a href="#" class="sidebar-link">
+      <i class="bi bi-power"></i>
+      <span>Logout</span>
+    </a>
+  </div>
+</aside>
+
+<style>
+  a{
+    text-decoration: none;
+  }
+
+  #sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+    min-width: 70px;
+    z-index: 1000;
+    transition: all .25s;
+    background-color: #0b0f19;
+  }
+
+  #sidebar.expand {
+    width: 300px;
+    min-width: 300px;
+  }
+  
+  .sidebar-widget{
+    display: flex;
+    background-color: #f5f5f526;
+  }
+
+  .toggle-btn{
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+  }
+
+  .toggle-btn i {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+
+  .sidebar-logo{
+    margin: auto 0;
+  }
+  
+  .sidebar-logo a{
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 800;
+  }
+
+  #sidebar:not(.expand) .sidebar-logo,
+  #sidebar:not(.expand) a.sidebar-link span{
+    display: none;
+  }
+
+  .sidebar-nav{
+    padding: 0;
+    flex: 1 1 auto;
+  }
+
+  a.sidebar-link{
+    padding: .625rem 1.625rem;
+    color: #fff;
+    display: block;
+    font-weight: 700;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+  }
+
+  .sidebar-link i{
+    font-size: 1.1rem;
+    margin-right: .75rem;
+  }
+
+  .sidebar-item{
+    position: relative;
+    margin: 5px 0;
+  }
+
+  .sidebar-item .sidebar-dropdown{
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+  }
+
+  #sidebar.expand .sidebar-item .has-dropdown.active+.sidebar-dropdown{
+    display: block;
+    max-height: 15em; 
+    transition: all 200ms linear;
+    opacity: 1;
+  }
+
+  #sidebar.expand .sidebar-link.has-dropdown::after{
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+  }
+  
+  #sidebar.expand .sidebar-link.has-dropdown.active::after{
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+  }
+
+  a.sidebar-link:hover,
+  .sidebar-link.active{
+    background-color: #aeaeae29;
+    border-left: 3px solid #7257f2;
+  }
+
+  .sidebar.dropdown a.sidebar-link{
+    position: relative;
+    padding-left: 3rem;
+    transition: all 0.5s;
+  }
+
+  .sidebar-dropdown a.sidebar-link::before{
+    content: "";
+    height: 0.125rem;
+    width: 0.375rem;
+    background-color: #ffffff80;
+    position: absolute;
+    left: 1.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.5s;    
+  }
+
+  .sidebar-dropdown a.sidebar-link:hover:before{
+    width: 1.25rem;
+  }
+
+  .sidebar-dropdown a.sidebar-link:hover{
+    background: transparent;
+    border-left: 3px solid transparent;
+    padding-left: 3.8rem;
+    color: #7257f2;
+  }
+</style>
+
+<script>
+  const hamburguer = document.querySelector(".toggle-btn");
+  hamburguer.addEventListener("click", function () {
+    document.querySelector("#sidebar").classList.toggle("expand");
+  })
+
+  // FIZZ-BUZZ //
+
+  const items = document.querySelectorAll(".has-dropdown");
+
+  function toggle() {
+    const itemToggle = this.classList.contains("active");
+
+    for (i = 0; i < items.length; i++) {
+      items[i].classList.remove("active");
+    }
+
+    if (!itemToggle) {
+      this.classList.add("active");
+    }
+  }
+  
+  items.forEach((item) => item.addEventListener("click", toggle));
+</script>

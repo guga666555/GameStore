@@ -1,0 +1,24 @@
+GET http://localhost:5241/productTypes
+
+###
+GET http://localhost:5241/productTypes/3
+
+### 
+POST http://localhost:5241/productTypes
+Content-Type: application/json
+
+{
+    "name" : "Digital"
+}
+
+### 
+PUT http://localhost:5241/productTypes/3
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Midia"
+}
+
+###
+DELETE http://localhost:5241/productTypes/4

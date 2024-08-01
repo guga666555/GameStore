@@ -1,0 +1,35 @@
+GET http://localhost:5241/games
+
+###
+GET http://localhost:5241/games/3
+
+### 
+POST http://localhost:5241/games
+Content-Type: application/json
+
+{
+    "name" : "Need for Speed Underground",
+    "price" : 45.00,
+    "releaseDate" : "2016-05-06",
+    "plataformId" : 1,
+    "pictureId" : 1,
+    "productTypeId" : 1,
+    "genreId" : 1
+}
+
+### 
+PUT http://localhost:5241/games/1
+Content-Type: application/json
+
+{
+  "name": "BATTLEFIELD HARDLINE",
+  "genreId": 1,
+  "pictureId" : 1,
+  "plataformId" : 1,
+  "productTypeId" : 1,
+  "price": 60.00,
+  "releaseDate": "2024-01-01"
+}
+
+###
+DELETE http://localhost:5241/games/1

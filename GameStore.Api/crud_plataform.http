@@ -1,0 +1,24 @@
+GET http://localhost:5241/plataforms
+
+###
+GET http://localhost:5241/plataforms/3
+
+### 
+POST http://localhost:5241/plataforms
+Content-Type: application/json
+
+{
+    "name" : "PC"
+}
+
+### 
+PUT http://localhost:5241/plataforms/3
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "XBOX"
+}
+
+###
+DELETE http://localhost:5241/plataforms/4

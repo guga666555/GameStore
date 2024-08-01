@@ -1,0 +1,99 @@
+@attribute [StreamRendering]
+
+<div class="dashboard-navbar">
+  <form action="#">
+    <div class="nav-search">
+      <input type="text" class="search-query" placeholder="Search...">
+      <button class="btn" type="button">search</button>
+    </div>
+  </form>
+  <div class="form-content">
+    <ul class="main-nav">
+      <li class="user-link">
+        <a href="#">
+          <img src="https://cdn-icons-png.flaticon.com/512/219/219969.png" class="avatar" alt="Profile">
+        </a>
+        <div class="user-link-dropdown">
+          <a href="#" class="dropdown-item">Profile</a>
+          <a href="#" class="dropdown-item">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .dashboard-navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0.375rem 1.5rem;
+    background-color: #eff2f7;
+  }
+
+  .dashboard-navbar form {
+    display: none;
+  }
+
+  .dashboard-navbar .form-content {
+    display: flex;
+    flex-grow: 1;
+    min-width: 200px;
+  }
+
+  .dashboard-navbar .main-nav {
+    margin-left: auto;
+  }
+
+  .user-link {
+    position: relative;
+    list-style-type: none;
+    /* Removes the bullets */
+  }
+
+  .avatar {
+    height: 40px;
+    width: 40px;
+  }
+
+  .user-link-dropdown {
+    display: none;
+  }
+
+  .user-link:hover .user-link-dropdown {
+    position: absolute;
+    right: 0;
+    left: auto;
+    min-width: 9rem;
+    background-color: #eff2f7;
+    display: block;
+    border-radius: .5rem;
+    padding-top: 10px;
+    animation: fade .5s;
+    box-shadow: 2px 2px #8888886e;
+  }
+
+  @@keyframes fade {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .user-link-dropdown a {
+    display: block;
+    width: 100%;
+    color: #495057;
+    padding: 0.125rem 0.75rem;
+    font-size: 1rem;
+    margin-top: 0.5;
+  }
+
+  .user-link-dropdown a:hover {
+    transition: .4s;
+    color: white;
+    background-color: #6e00ff;
+  }
+</style>

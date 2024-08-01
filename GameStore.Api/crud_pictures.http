@@ -1,0 +1,26 @@
+GET http://localhost:5241/pictures
+
+###
+GET http://localhost:5241/pictures/3
+
+### 
+POST http://localhost:5241/pictures
+Content-Type: application/json
+
+{
+    "name" : "Battlefield V | Cover",
+    "pictureUrl" : ""
+}
+
+### 
+PUT http://localhost:5241/pictures/3
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "GTA V | Cover",
+  "pictureUrl": ""
+}
+
+###
+DELETE http://localhost:5241/pictures/4
